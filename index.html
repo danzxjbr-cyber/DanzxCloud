@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Danzx Cloud — Panel, Reseller & Partner</title>
+    <meta name="description" content="Danzx Cloud — sewa panel Pterodactyl, jadi reseller, naik jadi partner. Checkout QRIS via Nevapedia." />
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grid-backdrop"></div>
+
+    <header>
+      <div class="wrap header-inner">
+        <a href="#top" class="brand">
+          <span class="brand-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12l6-8 6 8-6 8-6-8z" fill="#051312"/>
+              <path d="M14 12l4-5 4 5-4 5-4-5z" fill="#051312" opacity="0.55"/>
+            </svg>
+          </span>
+          <span>
+            <div class="brand-word">DANZX CLOUD</div>
+            <div class="brand-sub">panel · reseller · partner</div>
+          </span>
+        </a>
+        <nav class="tabs" id="navTabs">
+          <a class="tab" data-cat="panel" href="#panel">Panel</a>
+          <a class="tab" data-cat="reseller" href="#reseller">Reseller</a>
+          <a class="tab" data-cat="partner" href="#partner">Partner</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="demoBanner" class="demo-banner" style="display:none">
+      <div class="wrap demo-banner-inner">
+        <span class="demo-banner-dot"></span>
+        <span><b>Mode Demo aktif</b> — QR &amp; status pembayaran di bawah ini simulasi, bukan transaksi asli. Set API key di Environment Variables untuk mode produksi.</span>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero wrap">
+        <div class="eyebrow"><span class="dot"></span> QRIS via Nevapedia · Auto Provision</div>
+        <h1 class="headline">Sewa panel, jadi <span class="hl">reseller</span>, naik jadi partner.</h1>
+        <p class="sub">Tiga tingkat akses dalam satu ekosistem. Mulai dari panel sendiri, jual ulang sebagai reseller, atau ambil bagian terbesar sebagai partner — semua checkout lewat QRIS dan aktif otomatis.</p>
+        <div class="cta-row">
+          <a href="#panel" class="btn btn-primary">Lihat Paket Panel</a>
+          <a href="https://t.me/Danzx_JBR" target="_blank" rel="noopener" class="btn btn-ghost">Hubungi Admin</a>
+        </div>
+
+        <div class="ladder" id="ladder"><!-- diisi JS dari config.js --></div>
+      </section>
+
+      <div id="productsRoot"><!-- product sections diisi JS --></div>
+
+      <section id="payment" class="wrap">
+        <div class="pay-shell">
+          <div class="pay-head">
+            <h3>Checkout</h3>
+            <div class="status-pill idle" id="payStatus"><span class="dot"></span><span id="payStatusText">Belum ada transaksi</span></div>
+          </div>
+
+          <div class="pay-empty" id="paymentEmpty">
+            &gt; pilih paket di salah satu produk di atas, lalu klik <b style="color:var(--text)">Beli</b> untuk memunculkan QRIS di sini_
+          </div>
+
+          <div class="pay-body" id="paymentActive">
+            <div class="pay-grid">
+              <div class="receipt" id="orderReceipt"></div>
+
+              <div>
+                <div class="qr-box">
+                  <div class="qr-img-wrap"><img id="qrImage" alt="QRIS" /></div>
+                  <div class="qr-side">
+                    <div class="qr-label">Payment String</div>
+                    <div class="qr-string" id="paymentString"></div>
+                    <div class="qr-actions">
+                      <button id="copyPayment" class="btn btn-ghost">Copy</button>
+                      <button id="refreshStatus" class="btn btn-primary">Refresh Status</button>
+                      <button id="cancelPayment" class="btn btn-danger">Batalkan</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="status-detail" id="statusDetails"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <div>© <span id="year"></span> Danzx Cloud</div>
+        <div>
+          <a href="https://t.me/InformationDanzxJBR" target="_blank" rel="noopener">Channel Info</a>
+          &nbsp;·&nbsp;
+          <a href="https://t.me/Danzx_JBR" target="_blank" rel="noopener">Admin</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastRoot"></div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
